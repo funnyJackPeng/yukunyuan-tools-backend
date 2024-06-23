@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id 'org.springframework.boot' version '3.3.1' apply false
-    id 'io.spring.dependency-management' version '1.1.5' apply false
-    id 'org.graalvm.buildtools.native' version '0.10.2' apply false
-    id 'org.jetbrains.kotlin.jvm' version '1.9.24' apply false
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.9.24' apply false
+    id 'org.springframework.boot' apply false
+    id 'org.graalvm.buildtools.native' apply false
+    id 'org.jetbrains.kotlin.jvm' apply false
+    id 'org.jetbrains.kotlin.plugin.jpa' apply false
+    id 'org.jetbrains.kotlin.plugin.spring' apply false
 }
 allprojects {
     group = 'com.funnyJack'

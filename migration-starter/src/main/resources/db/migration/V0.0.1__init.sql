@@ -1,6 +1,6 @@
-create table if not exists "user"
+create table if not exists user_info
 (
-    "id"          bigint primary key,
+    "id" serial primary key,
     "openid"      text,
     "session_key" text
 );
