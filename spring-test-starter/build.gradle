@@ -1,0 +1,24 @@
+apply plugin: 'kotlin-spring'
+
+//spring
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+    api 'org.springframework.boot:spring-boot-starter-test:3.3.1'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+    compileOnly 'org.springframework.boot:spring-boot-starter-jdbc:3.3.1'
+}
+
+//test
+dependencies {
+    // https://mvnrepository.com/artifact/org.testcontainers/testcontainers
+    testImplementation 'org.testcontainers:testcontainers:1.19.8'
+    // https://mvnrepository.com/artifact/org.testcontainers/junit-jupiter
+    api 'org.testcontainers:junit-jupiter:1.19.8'
+    // https://mvnrepository.com/artifact/org.testcontainers/postgresql
+    testImplementation 'org.testcontainers:postgresql:1.19.8'
+}
+
+//
+dependencies {
+    implementation project(':migration-starter')
+}

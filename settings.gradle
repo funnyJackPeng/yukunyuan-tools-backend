@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            //uniform lib and plugin version
+            if (requested.id.id.startsWith('org.jetbrains.kotlin')) {
+                useVersion kotlinVersion
+            }
+            if (requested.id.id.startsWith('org.springframework.boot')) {
+                useVersion springBootVersion
+            }
+            if (requested.id.id.startsWith('org.graalvm.buildtools.native')) {
+                useVersion graalvmNativePluginVersion
+            }
+        }
+    }
+}
+
+rootProject.name = 'yukunyuan-tools-backend'
+
+// starter
+include 'spring-test-starter'
+include 'migration-starter'
+
+// frontend service
+include 'monolith-service'
+
+//job
+include 'migration-job'

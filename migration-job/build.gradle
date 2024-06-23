@@ -1,0 +1,16 @@
+apply plugin: 'kotlin-spring'
+apply plugin: 'org.springframework.boot'
+
+//spring
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
+    implementation 'org.springframework.boot:spring-boot-starter'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+}
+
+dependencies {
+    implementation project(':migration-starter')
+}
+
+task wrapper {}

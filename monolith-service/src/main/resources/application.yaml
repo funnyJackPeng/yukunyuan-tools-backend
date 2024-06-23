@@ -1,0 +1,13 @@
+# port
+server:
+  port: ${PORT:8080}
+  # basePath
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: monolith
+  datasource:
+    url: jdbc:postgresql://localhost:54320/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
+    username: postgres
+    password: 123456
