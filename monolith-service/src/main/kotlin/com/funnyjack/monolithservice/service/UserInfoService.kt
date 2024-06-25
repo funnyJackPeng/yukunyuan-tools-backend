@@ -23,7 +23,7 @@ class UserInfoService(
             queryParam("appid", LoginConstant.APPID)
             queryParam("secret", LoginConstant.SECRET)
             queryParam("grant_type", LoginConstant.AUTHORIZATION_CODE)
-            queryParam("jsCode", jsCode)
+            queryParam("js_code", jsCode)
         }.toUriString()
         val result = restTemplate.getForObject(uri, String::class.java)
         return objectMapper.readValue(result, LoginResponseModel::class.java)
