@@ -1,6 +1,5 @@
 package com.funnyjack.monolithservice.controller
 
-import com.funnyjack.monolithservice.model.LoginResponseModel
 import com.funnyjack.monolithservice.model.UserInfoViewModel
 import com.funnyjack.monolithservice.model.toViewModel
 import com.funnyjack.monolithservice.service.UserInfoService
@@ -13,17 +12,18 @@ import org.springframework.web.bind.annotation.*
 class UserInfoController(
     private val userInfoService: UserInfoService
 ) {
-    @GetMapping("/{id}")
+    @GetMapping("/{openId}")
     fun get(
-        @PathVariable id: Long
+        @PathVariable openId: String
     ): UserInfoViewModel {
-        return userInfoService.get(id).get().toViewModel()
+        return userInfoService.get(openId).toViewModel()
     }
 
     @PostMapping("/login")
     fun login(
         @RequestParam jsCode: String,
-    ): LoginResponseModel {
-        return userInfoService.login(jsCode)
+        @RequestParam userName: String,
+    ): UserInfoViewModel {
+        return userInfoService.login(jsCode, userName).toViewModel()
     }
 }

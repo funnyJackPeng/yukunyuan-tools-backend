@@ -12,9 +12,13 @@ class UserInfo(
     val id: Long? = null,
     @Column(nullable = false)
     val openid: String,
+    @Column(length = 256, nullable = false)
+    var userName: String,
     @Column(nullable = false)
-    val sessionKey: String
+    var sessionKey: String
 )
 
 @Repository
-interface UserInfoRepository : PagingAndSortingRepository<UserInfo, Long>, CrudRepository<UserInfo, Long>
+interface UserInfoRepository : PagingAndSortingRepository<UserInfo, Long>, CrudRepository<UserInfo, Long> {
+    fun findByOpenid(openid: String): UserInfo?
+}
