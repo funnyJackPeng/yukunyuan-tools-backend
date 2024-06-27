@@ -1,6 +1,6 @@
-package com.funnyjack.monolithservice.model
+package com.funnyjack.monolith.model
 
-import com.funnyjack.monolithservice.entity.UserInfo
+import com.funnyjack.monolith.entity.UserInfo
 
 class UserInfoViewModel(
     val id: Long,

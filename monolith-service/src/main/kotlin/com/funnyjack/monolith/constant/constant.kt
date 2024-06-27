@@ -1,3 +1,5 @@
+package com.funnyjack.monolith.constant
+
 object LoginConstant {
     const val LOGIN_PATH = "https://api.weixin.qq.com/sns/jscode2session"
     const val AUTHORIZATION_CODE = "yukunyuan-tools"

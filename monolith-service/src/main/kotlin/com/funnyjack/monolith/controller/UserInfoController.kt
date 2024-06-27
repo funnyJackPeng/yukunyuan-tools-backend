@@ -1,8 +1,8 @@
-package com.funnyjack.monolithservice.controller
+package com.funnyjack.monolith.controller
 
-import com.funnyjack.monolithservice.model.UserInfoViewModel
-import com.funnyjack.monolithservice.model.toViewModel
-import com.funnyjack.monolithservice.service.UserInfoService
+import com.funnyjack.monolith.model.UserInfoViewModel
+import com.funnyjack.monolith.model.toViewModel
+import com.funnyjack.monolith.service.UserInfoService
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
 

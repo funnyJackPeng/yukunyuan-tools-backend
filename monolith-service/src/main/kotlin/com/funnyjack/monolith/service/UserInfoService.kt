@@ -1,10 +1,10 @@
-package com.funnyjack.monolithservice.service
+package com.funnyjack.monolith.service
 
-import LoginConstant
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.funnyjack.monolithservice.entity.UserInfo
-import com.funnyjack.monolithservice.entity.UserInfoRepository
-import com.funnyjack.monolithservice.model.LoginResponseModel
+import com.funnyjack.monolith.constant.LoginConstant
+import com.funnyjack.monolith.entity.UserInfo
+import com.funnyjack.monolith.entity.UserInfoRepository
+import com.funnyjack.monolith.model.LoginResponseModel
 import com.funnyjack.testdeploy.exception.ResourceNotFoundException
 import com.hiczp.spring.error.BadRequestException
 import org.springframework.stereotype.Service

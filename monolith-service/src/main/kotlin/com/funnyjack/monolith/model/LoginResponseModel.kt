@@ -1,4 +1,4 @@
-package com.funnyjack.monolithservice.model
+package com.funnyjack.monolith.model
 
 data class LoginResponseModel(
     val openid: String?,

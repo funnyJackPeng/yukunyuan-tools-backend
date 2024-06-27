@@ -27,6 +27,7 @@ include 'migration-starter'
 
 // frontend service
 include 'monolith-service'
+include 'email-service'
 
 //job
 include 'migration-job'

@@ -1,4 +1,4 @@
-package com.funnyjack.monolithservice
+package com.funnyjack.monolith
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
