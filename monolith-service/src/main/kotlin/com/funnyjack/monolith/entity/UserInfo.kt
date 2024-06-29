@@ -15,7 +15,15 @@ class UserInfo(
     @Column(length = 256, nullable = false)
     var userName: String,
     @Column(nullable = false)
-    var sessionKey: String
+    var sessionKey: String,
+
+    @OneToOne(
+        mappedBy = "userInfo",
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true
+    )
+    val joinApplication: JoinApplication? = null
 )
 
 @Repository

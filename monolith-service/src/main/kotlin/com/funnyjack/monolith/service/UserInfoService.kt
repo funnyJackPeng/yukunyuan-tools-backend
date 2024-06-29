@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.funnyjack.monolith.constant.LoginConstant
 import com.funnyjack.monolith.entity.UserInfo
 import com.funnyjack.monolith.entity.UserInfoRepository
+import com.funnyjack.monolith.exception.ResourceNotFoundException
 import com.funnyjack.monolith.model.LoginResponseModel
-import com.funnyjack.testdeploy.exception.ResourceNotFoundException
 import com.hiczp.spring.error.BadRequestException
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate

@@ -1,4 +1,4 @@
-package com.funnyjack.testdeploy.exception
+package com.funnyjack.monolith.exception
 
 import com.hiczp.spring.error.NotFoundException
 import kotlin.reflect.KClass
