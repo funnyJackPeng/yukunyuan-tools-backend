@@ -1,4 +1,4 @@
-package com.funnyjack.testdeploy.utils
+package com.funnyjack.common.string
 
 private val matchedChars = arrayOf(' ', '　', '\t', '\r', '\n')
 

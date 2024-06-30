@@ -1,4 +1,4 @@
-package com.funnyjack.testdeploy.jpaspecificationdsl
+package com.funnyjack.persistent.dsl
 
 
 import jakarta.persistence.criteria.*

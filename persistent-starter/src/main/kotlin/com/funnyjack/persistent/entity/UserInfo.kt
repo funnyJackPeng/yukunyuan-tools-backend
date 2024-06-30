@@ -1,4 +1,4 @@
-package com.funnyjack.monolith.entity
+package com.funnyjack.persistent.entity
 
 import jakarta.persistence.*
 import org.springframework.data.repository.CrudRepository
@@ -16,7 +16,12 @@ class UserInfo(
     var userName: String,
     @Column(nullable = false)
     var sessionKey: String,
-
+    @Column(length = 256)
+    var localPart: String? = null,
+    @Column
+    var emailCompany: EmailCompany? = null,
+    @Column(length = 256)
+    var emailAuthCode: String? = null,
     @OneToOne(
         mappedBy = "userInfo",
         fetch = FetchType.LAZY,
@@ -24,7 +29,12 @@ class UserInfo(
         orphanRemoval = true
     )
     val joinApplication: JoinApplication? = null
-)
+) {
+    enum class EmailCompany(host: String, port: String, domain: String) {
+        TECENT("smtp.qq.com", "587", "@qq.com"),
+        NETEASE("smtp.163.com", "25", "@163.com"),
+    }
+}
 
 @Repository
 interface UserInfoRepository : PagingAndSortingRepository<UserInfo, Long>, CrudRepository<UserInfo, Long> {

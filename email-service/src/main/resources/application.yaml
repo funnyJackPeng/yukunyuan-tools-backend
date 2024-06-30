@@ -6,16 +6,8 @@ server:
     context-path: /api
 spring:
   application:
-    name: email-service
+    name: email
   datasource:
     url: jdbc:postgresql://localhost:54320/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
     username: postgres
     password: 123456
-  mail:
-    host: smtp.163.com #根据用户使用的 email 不同，换成 163 或者 qq 邮箱，到时候可以弄个 enum。
-    port: 25
-    username: 13388883711@163.com
-    password: ROEGRFUFXGBFJAAR
-    properties:
-      "mail.smtp.auth": true
-      "mail.smtp.starttls.enable": true

@@ -1,8 +1,14 @@
 package com.funnyjack.monolith.model
 
-import com.funnyjack.monolith.entity.UserInfo
+import com.funnyjack.persistent.entity.UserInfo
 
-class UserInfoViewModel(
+data class UserInfoPatchModel(
+    val localPart: String? = null,
+    val emailCompany: UserInfo.EmailCompany? = null,
+    val emailAuthCode: String? = null,
+)
+
+data class UserInfoViewModel(
     val id: Long,
     val openid: String,
     val userName: String,

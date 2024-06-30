@@ -1,11 +1,12 @@
 package com.funnyjack.monolith.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.funnyjack.monolith.constant.LoginConstant
-import com.funnyjack.monolith.entity.UserInfo
-import com.funnyjack.monolith.entity.UserInfoRepository
-import com.funnyjack.monolith.exception.ResourceNotFoundException
+import com.funnyjack.constant.LoginConstant
+import com.funnyjack.exception.ResourceNotFoundException
 import com.funnyjack.monolith.model.LoginResponseModel
+import com.funnyjack.monolith.model.UserInfoPatchModel
+import com.funnyjack.persistent.entity.UserInfo
+import com.funnyjack.persistent.entity.UserInfoRepository
 import com.hiczp.spring.error.BadRequestException
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
@@ -43,6 +44,14 @@ class UserInfoService(
             sessionKey = result.session_key!!,
             userName = userName
         ).save()
+    }
+
+    fun modifyEmail(userInfo: UserInfo, patchModel: UserInfoPatchModel) {
+        userInfo.apply {
+            patchModel.localPart?.also { localPart = it }
+            patchModel.emailCompany?.also { emailCompany = it }
+            patchModel.emailAuthCode?.also { emailAuthCode = it }
+        }
     }
 
     private fun UserInfo.save() = userInfoRepository.save(this)

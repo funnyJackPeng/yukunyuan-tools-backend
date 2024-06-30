@@ -1,4 +1,4 @@
-package com.funnyjack.monolith.exception
+package com.funnyjack.exception
 
 import com.hiczp.spring.error.NotFoundException
 import kotlin.reflect.KClass

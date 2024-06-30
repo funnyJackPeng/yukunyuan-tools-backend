@@ -1,0 +1,11 @@
+apply plugin: 'org.springframework.boot'
+//utils
+dependencies {
+    // https://jitpack.io/#czp3009/spring-errors
+    api 'com.github.czp3009:spring-errors:0.0.2'
+}
+//spring
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework/spring-web
+    compileOnly group: 'org.springframework', name: 'spring-web'
+}

@@ -1,10 +1,10 @@
 package com.funnyjack.monolith.service
 
-import com.funnyjack.monolith.entity.JoinApplication
-import com.funnyjack.monolith.entity.JoinApplicationRepository
-import com.funnyjack.monolith.exception.ResourceNotFoundException
+import com.funnyjack.exception.ResourceNotFoundException
 import com.funnyjack.monolith.model.JoinApplicationCreationModel
 import com.funnyjack.monolith.model.JoinApplicationPatchingModel
+import com.funnyjack.persistent.entity.JoinApplication
+import com.funnyjack.persistent.entity.JoinApplicationRepository
 import org.springframework.stereotype.Service
 
 @Service

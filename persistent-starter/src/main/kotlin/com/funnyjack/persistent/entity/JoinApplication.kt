@@ -1,4 +1,4 @@
-package com.funnyjack.monolith.entity
+package com.funnyjack.persistent.entity
 
 import jakarta.persistence.*
 import org.springframework.data.repository.CrudRepository

@@ -1,6 +1,6 @@
 package com.funnyjack.monolith.model
 
-import com.funnyjack.monolith.entity.JoinApplication
+import com.funnyjack.persistent.entity.JoinApplication
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import java.math.BigDecimal

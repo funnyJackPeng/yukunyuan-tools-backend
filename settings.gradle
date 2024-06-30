@@ -20,6 +20,8 @@ pluginManagement {
 }
 
 rootProject.name = 'yukunyuan-tools-backend'
+//lib
+include 'common'
 
 // starter
 include 'spring-test-starter'
@@ -28,6 +30,7 @@ include 'migration-starter'
 // frontend service
 include 'monolith-service'
 include 'email-service'
+include 'persistent-starter'
 
 //job
 include 'migration-job'
