@@ -1,4 +1,4 @@
-package com.funnyjack.testdeploy.utils
+package com.funnyjack.persistent.domain
 
 import org.springframework.data.jpa.domain.Specification
 
