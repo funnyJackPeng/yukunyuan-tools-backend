@@ -46,13 +46,12 @@ class UserInfoService(
         ).save()
     }
 
-    fun modifyEmail(userInfo: UserInfo, patchModel: UserInfoPatchModel) {
+    fun modifyEmail(userInfo: UserInfo, patchModel: UserInfoPatchModel): UserInfo =
         userInfo.apply {
             patchModel.localPart?.also { localPart = it }
             patchModel.emailCompany?.also { emailCompany = it }
             patchModel.emailAuthCode?.also { emailAuthCode = it }
-        }
-    }
+        }.save()
 
     private fun UserInfo.save() = userInfoRepository.save(this)
 }

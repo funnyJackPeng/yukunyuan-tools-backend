@@ -22,4 +22,8 @@ dependencies {
     implementation 'org.postgresql:postgresql:42.7.3'
 }
 
+dependencies {
+    api project(':common')
+}
+
 task wrapper {}

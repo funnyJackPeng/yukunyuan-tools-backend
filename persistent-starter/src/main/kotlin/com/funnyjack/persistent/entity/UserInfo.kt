@@ -30,9 +30,9 @@ class UserInfo(
     )
     val joinApplication: JoinApplication? = null
 ) {
-    enum class EmailCompany(host: String, port: String, domain: String) {
-        TECENT("smtp.qq.com", "587", "@qq.com"),
-        NETEASE("smtp.163.com", "25", "@163.com"),
+    enum class EmailCompany(val host: String, val port: Int, val domain: String) {
+        TECENT("smtp.qq.com", 587, "@qq.com"),
+        NETEASE("smtp.163.com", 25, "@163.com"),
     }
 }
 

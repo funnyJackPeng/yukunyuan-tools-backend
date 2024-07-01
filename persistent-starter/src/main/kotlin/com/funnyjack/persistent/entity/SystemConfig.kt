@@ -1,17 +1,28 @@
 package com.funnyjack.persistent.entity
 
-import jakarta.persistence.*
-import org.springframework.data.jpa.repository.JpaRepository
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Entity
 class SystemConfig(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
     @Column(length = 256, nullable = false)
-    var joinApplicationAddressee: String,
-)
+    var key: String,
+
+    @Column(length = 256, nullable = false)
+    var value: String,
+) {
+    object Key {
+        object EmailAddressee {
+            const val joinApplicationAddressee = "emailAddressee.joinApplicationAddressee"
+        }
+    }
+}
 
 @Repository
-interface SystemConfigRepository : JpaRepository<SystemConfig, Long>
+interface SystemConfigRepository : CrudRepository<SystemConfig, String> {
+    fun findByKey(key: String): SystemConfig?
+}
