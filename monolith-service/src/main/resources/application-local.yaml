@@ -1,0 +1,11 @@
+debug: true
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: trace
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

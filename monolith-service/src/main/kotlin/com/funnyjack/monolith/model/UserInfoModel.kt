@@ -4,7 +4,7 @@ import com.funnyjack.persistent.entity.UserInfo
 
 data class UserInfoPatchModel(
     val localPart: String? = null,
-    val emailCompany: UserInfo.EmailCompany? = null,
+    val emailCompany: UserInfo.Company? = null,
     val emailAuthCode: String? = null,
 )
 

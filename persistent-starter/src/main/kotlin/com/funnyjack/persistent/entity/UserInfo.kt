@@ -1,6 +1,8 @@
 package com.funnyjack.persistent.entity
 
 import jakarta.persistence.*
+import org.hibernate.annotations.JdbcType
+import org.hibernate.dialect.PostgreSQLEnumJdbcType
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.stereotype.Repository
@@ -18,10 +20,14 @@ class UserInfo(
     var sessionKey: String,
     @Column(length = 256)
     var localPart: String? = null,
-    @Column
-    var emailCompany: EmailCompany? = null,
     @Column(length = 256)
     var emailAuthCode: String? = null,
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    //https://www.baeldung.com/java-enums-jpa-postgresql
+    @JdbcType(PostgreSQLEnumJdbcType::class)
+    var emailCompany: Company? = null,
     @OneToOne(
         mappedBy = "userInfo",
         fetch = FetchType.LAZY,
@@ -30,8 +36,8 @@ class UserInfo(
     )
     val joinApplication: JoinApplication? = null
 ) {
-    enum class EmailCompany(val host: String, val port: Int, val domain: String) {
-        TECENT("smtp.qq.com", 587, "@qq.com"),
+    enum class Company(val host: String, val port: Int, val domain: String) {
+        TENCENT("smtp.qq.com", 587, "@qq.com"),
         NETEASE("smtp.163.com", 25, "@163.com"),
     }
 }
