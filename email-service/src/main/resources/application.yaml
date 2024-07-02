@@ -1,6 +1,10 @@
 # port
 server:
   port: ${PORT:8080}
+  error:
+    include-message: always
+    include-exception: true
+    include-binding-errors: always
   # basePath
   servlet:
     context-path: /api

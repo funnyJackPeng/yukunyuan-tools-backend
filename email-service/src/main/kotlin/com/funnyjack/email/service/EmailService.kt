@@ -6,7 +6,7 @@ import com.funnyjack.persistent.entity.SystemConfig
 import com.funnyjack.persistent.entity.UserInfo
 import com.funnyjack.persistent.entity.UserInfoRepository
 import com.funnyjack.persistent.service.SystemConfigService
-import org.apache.coyote.BadRequestException
+import com.hiczp.spring.error.BadRequestException
 import org.springframework.mail.SimpleMailMessage
 import org.springframework.mail.javamail.JavaMailSenderImpl
 import org.springframework.stereotype.Service
