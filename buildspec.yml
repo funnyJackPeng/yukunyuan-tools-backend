@@ -13,7 +13,7 @@ phases:
   pre_build:
     commands:
       - echo "构建前阶段..."
-      - echo "JAVA_HOME: $JAVA_HOME" # 验证 JAVA_HOME 是否设置正确
+      - echo "JAVA_HOME is $JAVA_HOME" # 验证 JAVA_HOME 是否设置正确
       - java -version # 验证 Java 版本是否正确
   build:
     commands:
