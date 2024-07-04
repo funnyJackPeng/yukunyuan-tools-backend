@@ -31,5 +31,3 @@ dependencies {
 dependencies {
     api project(':common')
 }
-
-task wrapper {}

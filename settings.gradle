@@ -24,7 +24,7 @@ rootProject.name = 'yukunyuan-tools-backend'
 include 'common'
 
 // starter
-include 'spring-test-starter'
+//include 'spring-test-starter'
 include 'migration-starter'
 
 // frontend service
