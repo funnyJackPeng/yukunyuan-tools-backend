@@ -1,5 +1,6 @@
 package com.funnyjack.persistent
 
+import com.funnyjack.persistent.configuration.SecretManagerConfiguration
 import com.funnyjack.persistent.entity.UserInfo
 import com.funnyjack.persistent.entity.UserInfoRepository
 import com.funnyjack.persistent.service.SystemConfigService
@@ -15,4 +16,5 @@ import org.springframework.data.repository.config.BootstrapMode
 //TODO in fact, this annotation is not needed, only for IDEA to recognize the Repository correctly
 @ComponentScan(basePackageClasses = [UserInfoRepository::class], lazyInit = true)
 @ComponentScan(basePackageClasses = [SystemConfigService::class])
+@ComponentScan(basePackageClasses = [SecretManagerConfiguration::class])
 class PersistentAutoConfiguration

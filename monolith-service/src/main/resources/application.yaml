@@ -8,10 +8,13 @@ server:
   # basePath
   servlet:
     context-path: /api
+
+aws:
+  secretsmanager:
+    secretName: rds!db-d1af7ad7-56e7-44ff-bb42-8983f082e2dc
+
 spring:
   application:
     name: monolith
   datasource:
-    url: jdbc:postgresql://localhost:54320/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://yukunyuan-tools.cz2o4csgcafy.ap-east-1.rds.amazonaws.com:5432/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
