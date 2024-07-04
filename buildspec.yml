@@ -1,0 +1,35 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "下载 GraalVM..."
+      - wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.3/graalvm-ce-java11-linux-amd64-21.0.3.tar.gz # 请根据您的操作系统和架构修改下载链接
+      - echo "解压 GraalVM..."
+      - tar -xzf graalvm-ce-java11-linux-amd64-21.0.3.tar.gz
+      - echo "设置 JAVA_HOME 环境变量..."
+      - export JAVA_HOME=$PWD/graalvm-ce-java11-21.0.3
+      - export PATH=$JAVA_HOME/bin:$PATH
+  pre_build:
+    commands:
+      - echo "构建前阶段..."
+      - echo "JAVA_HOME: $JAVA_HOME" # 验证 JAVA_HOME 是否设置正确
+      - java -version # 验证 Java 版本是否正确
+  build:
+    commands:
+      - echo "构建阶段..."
+      - ./gradlew clean build -x test # 使用 Gradle Wrapper 构建项目，跳过测试阶段
+  post_build:
+    commands:
+      - echo "构建后阶段..."
+      - echo "构建成功！"
+
+artifacts:
+  files:
+    - build/libs/*.jar # 将您的 jar 文件包含在构件中
+    - '*.json'
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.gradle/**/*' # 缓存 Gradle 依赖项
