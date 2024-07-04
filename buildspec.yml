@@ -4,11 +4,11 @@ phases:
   install:
     commands:
       - echo "下载 GraalVM..."
-      - wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.3/graalvm-ce-java11-linux-amd64-21.0.3.tar.gz # 请根据您的操作系统和架构修改下载链接
+      - wget https://download.oracle.com/graalvm/21/latest/graalvm-jdk-21_linux-x64_bin.tar.gz
       - echo "解压 GraalVM..."
-      - tar -xzf graalvm-ce-java11-linux-amd64-21.0.3.tar.gz
+      - tar -xzf graalvm-jdk-21_linux-x64_bin.tar.gz
       - echo "设置 JAVA_HOME 环境变量..."
-      - export JAVA_HOME=$PWD/graalvm-ce-java11-21.0.3
+      - export JAVA_HOME=$PWD/graalvm-jdk-21.0.3+7.1
       - export PATH=$JAVA_HOME/bin:$PATH
   pre_build:
     commands:
