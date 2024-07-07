@@ -1,12 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - echo "下载 SDK man..."
-      - curl -s "https://get.sdkman.io" | bash
-      - echo "下载 java 21 GraalVM..."
-      - sudo sdk install java 21.0.3-graal
   pre_build:
     commands:
       - echo check java version
