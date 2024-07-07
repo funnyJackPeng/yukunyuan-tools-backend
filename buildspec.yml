@@ -1,35 +1,19 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - echo "下载 GraalVM..."
-      - wget https://download.oracle.com/graalvm/21/latest/graalvm-jdk-21_linux-x64_bin.tar.gz
-      - echo "解压 GraalVM..."
-      - tar -xzf graalvm-jdk-21_linux-x64_bin.tar.gz
-      - echo "设置 JAVA_HOME 环境变量..."
-      - export JAVA_HOME=$PWD/graalvm-jdk-21.0.3+7.1
-      - export PATH=$JAVA_HOME/bin:$PATH
   pre_build:
     commands:
-      - echo "构建前阶段..."
-      - echo "JAVA_HOME is $JAVA_HOME" # 验证 JAVA_HOME 是否设置正确
-      - java -version # 验证 Java 版本是否正确
+      - echo Logging in to Amazon ECR...
+        - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
-      - echo "构建阶段..."
-      - ./gradlew clean build -x test # 使用 Gradle Wrapper 构建项目，跳过测试阶段
+      - echo "构建阶段，使用 gradle 打包 docker image..."
+      - ./build-images.sh  # 执行构建脚本
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
   post_build:
     commands:
       - echo "构建后阶段..."
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - echo "构建成功！"
-
-artifacts:
-  files:
-    - build/libs/*.jar # 将您的 jar 文件包含在构件中
-    - '*.json'
-  discard-paths: yes
-
-cache:
-  paths:
-    - '/root/.gradle/**/*' # 缓存 Gradle 依赖项
