@@ -6,8 +6,8 @@ apply plugin: 'org.springframework.boot'
 dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure
     compileOnly group: 'org.springframework.boot', name: 'spring-boot-autoconfigure'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    // https://mvnrepository.com/artifact/org.springframework/spring-web
+    implementation group: 'org.springframework', name: 'spring-web'
 }
 
 //jpa

@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: migration
   datasource:
     url: jdbc:postgresql://localhost:54320/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
     username: postgres

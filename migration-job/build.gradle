@@ -11,7 +11,6 @@ dependencies {
 
 dependencies {
     implementation project(':migration-starter')
-    implementation project(':persistent-starter')
 }
 
 task wrapper {}
