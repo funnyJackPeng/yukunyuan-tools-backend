@@ -31,8 +31,8 @@ class SecretManagerConfiguration(
         return objectMapper.readValue(getSecretValueResult.secretString, SecretValueResult::class.java).let {
             val config = HikariConfig()
             config.jdbcUrl = dataSourceProperties.url
-            config.username = it.username
-            config.password = it.password
+            config.username = dataSourceProperties.username?:it.username
+            config.password = dataSourceProperties.password?:it.password
             HikariDataSource(config)
         }
     }
