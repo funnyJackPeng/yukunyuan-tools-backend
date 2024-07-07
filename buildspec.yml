@@ -1,11 +1,17 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - echo "下载 SDK man..."
+      - curl -s "https://get.sdkman.io" | bash
+      - echo "下载 java 21 GraalVM..."
+      - sdk install java 21.0.3-graal
   pre_build:
     commands:
+      - echo check java version
+      - java -version # 验证 Java 版本是否正确
       - echo Logging in to Amazon ECR...
-      - echo $AWS_DEFAULT_REGION
-      - echo $AWS_ACCOUNT_ID
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
