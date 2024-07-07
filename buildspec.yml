@@ -14,11 +14,10 @@ phases:
     commands:
       - echo "构建阶段，使用 gradle 打包 docker image..."
       - ./build-images.sh  # 执行构建脚本
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
   post_build:
     commands:
       - echo "构建后阶段..."
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - ./push-images.sh
       - echo "构建成功！"
