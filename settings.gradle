@@ -19,7 +19,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'yukunyuan-tools-backend'
+rootProject.name = 'yukunyuan-tools'
 //lib
 include 'common'
 

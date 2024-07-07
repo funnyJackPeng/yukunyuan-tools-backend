@@ -1,3 +1,7 @@
 #!/bin/sh
 set -e
-docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+images=$(docker images "*.dkr.ecr.*.amazonaws.com/*:latest" --format "{{.Repository}}")
+echo "$images" | while read -r image ; do
+  echo "$image"
+  docker push "$image"
+done
