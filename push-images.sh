@@ -1,11 +1,14 @@
 #!/bin/sh
 set -e
-# 获取所有 ECR 镜像的 URI 并写入文件
-echo "write image list to txt file"
-docker images "*.dkr.ecr.*.amazonaws.com/*:latest" --format "{{.Repository}}" > /image_list.txt
+# 创建一个空的 JSON 数组
+echo "[" > imagedefinitions.json
 
-images=$(docker images "*.dkr.ecr.*.amazonaws.com/*:latest" --format "{{.Repository}}")
-echo "$images" | while read -r image ; do
-  echo "$image"
+# 获取所有 ECR 镜像的 URI 并写入 JSON 文件
+docker images "*.dkr.ecr.*.amazonaws.com/*:latest" --format "{{.Repository}}" | while read -r image; do
+  echo "{\"name\": \"${image##*/}\", \"imageUri\": \"$image:latest\"}" >> imagedefinitions.json
+  # 推送镜像到 ECR
   docker push "$image"
 done
+
+# 补全 JSON 数组
+echo "]" >> imagedefinitions.json
