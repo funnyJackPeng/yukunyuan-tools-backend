@@ -12,5 +12,3 @@ dependencies {
 dependencies {
     implementation project(':persistent-starter')
 }
-
-task wrapper {}

@@ -34,8 +34,6 @@ dependencies {
     implementation project(':persistent-starter')
 }
 
-task wrapper {}
-
 //
 //dependencies {
 //    testImplementation project(':spring-test-starter')
