@@ -17,7 +17,8 @@ phases:
   post_build:
     commands:
       - echo "构建后阶段..."
-      - echo Build completed on `date`
       - echo Pushing the Docker image...
       - ./push-images.sh
       - echo "构建成功！"
+artifacts:
+  files: /image_list.txt
