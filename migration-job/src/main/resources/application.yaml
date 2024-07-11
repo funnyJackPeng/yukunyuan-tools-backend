@@ -4,4 +4,4 @@ spring:
   datasource:
     url: jdbc:postgresql://yukunyuan-tools.cz2o4csgcafy.ap-east-1.rds.amazonaws.com:5432/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
     username: postgres
-    password: Xz*ki[7Z!zX:OR!wOmksXNVjEz(F
+    password: 9NG%T5hee*kwSGWuCAJ:qUMPn~y[
