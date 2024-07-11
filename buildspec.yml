@@ -21,5 +21,4 @@ phases:
       - ./push-images.sh
       - echo "构建成功！"
 artifacts:
-  files:
-    - imagedefinitions.json
+  files: /imagedefinitions.json
