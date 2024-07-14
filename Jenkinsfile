@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+  stages {
+    stage('检出') {
+      agent {
+        docker {
+          reuseNode 'true'
+          registryUrl 'https://coding-public-docker.pkg.coding.net'
+          image 'public/docker/openjdk:21-2024.03'
+        }
+…  }
+  environment {
+    CODING_DOCKER_REG_HOST = "${CCI_CURRENT_TEAM}-docker.pkg.${CCI_CURRENT_DOMAIN}"
+    CODING_DOCKER_IMAGE_NAME = "${PROJECT_NAME.toLowerCase()}/${DOCKER_REPO_NAME}/${DOCKER_IMAGE_NAME}"
+  }
+}
