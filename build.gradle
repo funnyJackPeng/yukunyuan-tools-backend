@@ -51,9 +51,7 @@ subprojects {
     afterEvaluate {
         //set image name
         bootBuildImage {
-            def region = System.getenv('AWS_DEFAULT_REGION')
-            def accountId = System.getenv('AWS_ACCOUNT_ID')
-            imageName = "${accountId}.dkr.ecr.${region}.amazonaws.com/${project.name}"
+            imageName = "${project.name}"
         }
     }
     task prepareKotlinBuildScriptModel {
