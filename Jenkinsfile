@@ -11,7 +11,7 @@ pipeline {
 
       }
       steps {
-        sh 'ls'
+        sh 'ls ./'
         sh './build-images.sh'
       }
     }
