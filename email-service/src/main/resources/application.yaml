@@ -8,9 +8,6 @@ server:
   # basePath
   servlet:
     context-path: /api
-#aws:
-#  secretsmanager:
-#    secretName: rds!db-d1af7ad7-56e7-44ff-bb42-8983f082e2dc
 
 spring:
   application:

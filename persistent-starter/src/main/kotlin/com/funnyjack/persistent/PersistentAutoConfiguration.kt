@@ -15,5 +15,4 @@ import org.springframework.data.repository.config.BootstrapMode
 //TODO in fact, this annotation is not needed, only for IDEA to recognize the Repository correctly
 @ComponentScan(basePackageClasses = [UserInfoRepository::class], lazyInit = true)
 @ComponentScan(basePackageClasses = [SystemConfigService::class])
-//@ComponentScan(basePackageClasses = [SecretManagerConfiguration::class])
 class PersistentAutoConfiguration
