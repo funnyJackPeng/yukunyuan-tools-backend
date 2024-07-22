@@ -13,6 +13,6 @@ spring:
   application:
     name: monolith
   datasource:
-    url: jdbc:postgresql://yukunyuan-tools.cz2o4csgcafy.ap-east-1.rds.amazonaws.com:5432/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:postgresql://pgm-bp1l4kw000kv8343fo.rwlb.rds.aliyuncs.com:5432/yukunyuan_tools?useUnicode=true&characterEncoding=UTF-8
     username: postgres
-    password: 9NG%T5hee*kwSGWuCAJ:qUMPn~y[
+    password: sS554517318!

@@ -51,7 +51,7 @@ subprojects {
     afterEvaluate {
         //set image name
         bootBuildImage {
-            imageName = "${project.name}"
+            imageName = "registry.cn-hangzhou.aliyuncs.com/yukunyuan-tools/${project.name}"
         }
     }
     task prepareKotlinBuildScriptModel {
