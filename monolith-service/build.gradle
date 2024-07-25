@@ -1,7 +1,6 @@
 apply plugin: 'kotlin-spring'
 apply plugin: 'kotlin-jpa'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'org.graalvm.buildtools.native'
 
 //spring
 dependencies {
@@ -15,11 +14,6 @@ dependencies {
 
 //kotlin
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-reflect'
-    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
-    implementation group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core'
-    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-reactor
-    implementation group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-reactor'
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test
     testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-test'
 }
