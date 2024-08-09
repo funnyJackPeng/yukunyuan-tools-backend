@@ -16,8 +16,9 @@ class SystemConfig(
     var value: String,
 ) {
     object Key {
-        object EmailAddressee {
-            const val joinApplicationAddressee = "emailAddressee.joinApplicationAddressee"
+        object EmailRecipient {
+            const val JOIN_APPLICATION_RECIPIENT = "emailRecipient.joinApplicationRecipient"
+            const val DONATION_APPLICATION_RECIPIENT = "emailRecipient.donationApplicationRecipient"
         }
     }
 }

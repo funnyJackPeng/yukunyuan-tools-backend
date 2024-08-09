@@ -17,4 +17,11 @@ class EmailController(
     ) {
         emailService.sendJoinApplication(openid)
     }
+
+    @PostMapping("/donationApplication/send")
+    fun sendDonationApplication(
+        @RequestHeader("Authorization") openid: String
+    ) {
+        emailService.sendDonationApplication(openid)
+    }
 }

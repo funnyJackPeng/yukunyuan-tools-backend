@@ -1,5 +1,6 @@
 package com.funnyjack.email.template
 
+import com.funnyjack.persistent.entity.DonationApplication
 import com.funnyjack.persistent.entity.JoinApplication
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -19,6 +20,20 @@ fun generateJoinApplicationTemplate(joinApplication: JoinApplication): Pair<Stri
         6.阅读了警告，完全了解所有风险，决定参与诚信共赢社区。本人心智健全，具有完全民事行为能力，能对自己的行为完全负责。
         申请人：${joinApplication.ownNumber}
         推荐人：${joinApplication.referrerNumber}
+                                                                     ${LocalDate.now().format(formatter)}
+    """.trimIndent()
+    return emailSubject to content
+}
+
+fun generateDonationApplicationTemplate(donationApplication: DonationApplication): Pair<String, String> {
+    val emailSubject = "${donationApplication.ownNumber}申请捐助${donationApplication.amount}"
+    val content = """
+    诚信共赢社区管理处：
+        本人自愿申请捐助${donationApplication.amount}元。
+        本人阅读了警告，完全了解所有风险，决定参与诚信共赢社区。
+        本人心智健全，具有完全民事行为能力，能对自己的行为完全负责。
+        申请人：${donationApplication.ownNumber}
+        推荐人：${donationApplication.referrerNumber}
                                                                      ${LocalDate.now().format(formatter)}
     """.trimIndent()
     return emailSubject to content
