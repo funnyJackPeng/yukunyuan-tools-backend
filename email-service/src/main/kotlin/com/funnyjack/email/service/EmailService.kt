@@ -1,10 +1,8 @@
 package com.funnyjack.email.service
 
+import com.funnyjack.email.template.generateDonationApplicationTemplate
 import com.funnyjack.email.template.generateJoinApplicationTemplate
-import com.funnyjack.persistent.entity.JoinApplicationRepository
-import com.funnyjack.persistent.entity.SystemConfig
-import com.funnyjack.persistent.entity.UserInfo
-import com.funnyjack.persistent.entity.UserInfoRepository
+import com.funnyjack.persistent.entity.*
 import com.funnyjack.persistent.service.SystemConfigService
 import com.hiczp.spring.error.BadRequestException
 import org.springframework.mail.SimpleMailMessage
@@ -15,15 +13,26 @@ import org.springframework.stereotype.Service
 class EmailService(
     private val userInfoRepository: UserInfoRepository,
     private val joinApplicationRepository: JoinApplicationRepository,
+    private val donationApplicationRepository: DonationApplicationRepository,
     private val systemConfigService: SystemConfigService
 ) {
     fun sendJoinApplication(openId: String) {
         val userInfo = userInfoRepository.findByOpenid(openId) ?: throw BadRequestException("请先登录！")
         val joinApplication = joinApplicationRepository.findByUserInfoOpenid(openId)
             ?: throw BadRequestException("请先配置加入申请邮件的模版")
-        val joinApplicationAddressee = systemConfigService[SystemConfig.Key.EmailAddressee.joinApplicationAddressee]
+        val joinApplicationAddressee = systemConfigService[SystemConfig.Key.EmailRecipient.JOIN_APPLICATION_RECIPIENT]
         val (emailSubject, content) = generateJoinApplicationTemplate(joinApplication)
         send(joinApplicationAddressee, userInfo, emailSubject, content)
+    }
+
+    fun sendDonationApplication(openId: String) {
+        val userInfo = userInfoRepository.findByOpenid(openId) ?: throw BadRequestException("请先登录！")
+        val donationApplication = donationApplicationRepository.findByUserInfoOpenid(openId)
+            ?: throw BadRequestException("请先配置加入申请邮件的模版")
+        val donationApplicationAddressee =
+            systemConfigService[SystemConfig.Key.EmailRecipient.DONATION_APPLICATION_RECIPIENT]
+        val (emailSubject, content) = generateDonationApplicationTemplate(donationApplication)
+        send(donationApplicationAddressee, userInfo, emailSubject, content)
     }
 
     private fun send(
